@@ -5,7 +5,14 @@ import pymysql
 
 load_dotenv() 
 
-db = MySQLDatabase('access_system_api', user='root', password='vmonsalve', host='127.0.0.1', port=3306)
+dba_name = os.getenv('DBA_NAME')
+dba_user = os.getenv('DBA_USER')
+dba_password = os.getenv('DBA_PASSWORD')
+dba_host = os.getenv('DBA_HOST')
+dba_port = os.getenv('DBA_PORT')
+
+
+db = MySQLDatabase(dba_name, user=dba_user, password=dba_password, host=dba_host, port=int(dba_port))
 
 class BaseModel(Model):
     class Meta:

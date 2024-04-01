@@ -1,8 +1,9 @@
-from peewee import Model, CharField, BooleanField
+from peewee import CharField, BooleanField
+from .base import BaseModel
 import bcrypt
 
-class User(Model):
-    name = CharField()
+class User(BaseModel):
+    username = CharField()
     email = CharField()
     salt = CharField()
     password = CharField()

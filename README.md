@@ -29,3 +29,15 @@ Para instalar las dependencias debe ser con el comando
 ```
 pip install -r requirements.txt
 ```
+
+## Instalar mysql con docker
+
+```
+docker run \
+ --name mysqldb \
+ -e MYSQL_ROOT_PASSWORD=tu_password \
+ -v $(pwd)/data_folder:/var/lib/mysql \
+ -p 3306:3306 \
+ -d \
+ arm64v8/mysql
+```
