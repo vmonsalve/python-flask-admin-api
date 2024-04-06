@@ -7,11 +7,18 @@ def saveUser(data):
                 username=data.get('username'),
                 email=data.get('email'),
                 password=data.get('password'),
-                state=True
+                state=False
         )
         new_user.encript_password()
         new_user.save()
 
-        return 'Guardado correctamente'
+        return new_user.id
+    except IntegrityError as e:
+        return e
+    
+def enable_user(id):
+    try:
+        User.update(state=True).where(User.id == id).execute()
+        return 'Usuario activado correctamente'
     except IntegrityError as e:
         return e
