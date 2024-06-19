@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify
 from models.user import User
 
-userControllerBp = Blueprint('users', __name__, url_prefix='/user')
+userControllerBp = Blueprint('users', __name__, url_prefix='/admin/user')
 
 @userControllerBp.route('/')
 def index():
