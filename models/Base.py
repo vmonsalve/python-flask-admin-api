@@ -1,7 +1,6 @@
 from peewee import *
 from dotenv import load_dotenv
 import os
-import pymysql
 
 load_dotenv() 
 
